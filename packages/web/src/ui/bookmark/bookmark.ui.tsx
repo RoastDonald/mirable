@@ -1,7 +1,6 @@
 import React from 'react'
-import SVGInline from 'react-svg-inline';
 import classnames from 'classnames';
-import bookmarkIcon from '../../assets/icons/heart.svg';
+import {ReactComponent as BookmarkIcon}  from '../../assets/icons/bookmark.svg';
 
 
 type BookmarkProps = {
@@ -12,15 +11,15 @@ type BookmarkProps = {
 const Bookmark = ({ className, size='small'}:BookmarkProps) => {
 
     const resolveClassName = ()=>{
-        return classnames('bookmark', `bookmark${size}`, {
+        return classnames('bookmark', size, {
           [className]: className,
         });
     }
 
-    const renderedIcon = ()=><SVGInline svg={bookmarkIcon} className="bookmark__icon"/>;
+    const renderedIcon = ()=><BookmarkIcon className={resolveClassName()}/>;
 
     return (
-        <div className={resolveClassName()}>
+        <div className="icon">
             {renderedIcon()}
         </div>
     )

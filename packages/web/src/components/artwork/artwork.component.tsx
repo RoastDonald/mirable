@@ -1,5 +1,6 @@
 import React from 'react';
 import {ArtworkContainer,ArtworkBottom,ArtworkTop, ArtworkCta} from './artwork.styles';
+import Tag from '../tag/tag.component';
 import {ICreator,ITag} from '../../interfaces';
 import Like from '../../ui/like/like.ui';
 import Bookmark from './../../ui/bookmark/bookmark.ui';
@@ -12,18 +13,22 @@ type ArtworkProps = {
     createdAt?:string;
 };
 
+
 const Artwork = ({imageURL}:ArtworkProps) => {
     return (
-        <ArtworkContainer>
+
+        <ArtworkContainer >
             <ArtworkTop>
                 <img src={imageURL} alt="artworl"/>
                 <ArtworkCta>
-                    <Like className="artwork__icon"/>
-                    <Bookmark className="artwork__icon"/>
+                    <Bookmark className="artwork__icon" size="medium"/>
+                    <Like className="artwork__icon" size="medium"/>
                 </ArtworkCta>
             </ArtworkTop>
             <ArtworkBottom>
-        bottom
+            <Tag/>
+            <Tag/>
+            <Tag/>  
             </ArtworkBottom>
         </ArtworkContainer>
     )

@@ -2,8 +2,15 @@ import React,{Fragment} from 'react';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyles from './theme/global-style';
 import {defaultTheme} from './theme';
+import {Switch, Route} from 'react-router-dom';
+import HomePage from './pages/home/home.page';
 
-import Artwork from './components/artwork/artwork.component';
+
+
+// import Artwork from './components/artwork/artwork.component';
+// import Waveform from './components/waveform/waveform.component';
+
+
 
 
 const App = () => {
@@ -11,7 +18,9 @@ const App = () => {
     <Fragment>
       <GlobalStyles/>
       <ThemeProvider theme={defaultTheme}>
-        <Artwork imageURL='https://dkt4eyd7dv0ic.cloudfront.net/visual/9ee181b7-0a06-4b52-b0b3-53bdfdf3039a.jpg'/>
+        <Switch>
+        <Route path="/" component={HomePage}/>
+        </Switch>
       </ThemeProvider>
      
     </Fragment>

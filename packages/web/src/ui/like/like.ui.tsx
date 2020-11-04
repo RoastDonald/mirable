@@ -1,26 +1,25 @@
 import React from 'react'
-import SVGInline from 'react-svg-inline';
 import classnames from 'classnames';
-import likeIcon from '../../assets/icons/heart.svg';
+import {ReactComponent as LikeIcon } from '../../assets/icons/heart.svg';
 
 
 type LikeProps = {
     className:string;
-    size?: 'small' | 'medium' | 'large';
+    size?: 'small' | 'medium' | 'large' | 'extra';
 }
 
 const Like = ({ className, size='small'}:LikeProps) => {
 
     const resolveClassName = ()=>{
-        return classnames('like', `like${size}`, {
+        return classnames('like', size, {
           [className]: className,
-        });
-    }
+        }); 
+    }   
 
-    const renderedIcon = ()=><SVGInline svg={likeIcon} className="like__icon"/>;
+    const renderedIcon = ()=><LikeIcon  className={resolveClassName()}/>;
 
     return (
-        <div className={resolveClassName()}>
+        <div className="icon">
             {renderedIcon()}
         </div>
     )
